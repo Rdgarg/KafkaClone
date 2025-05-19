@@ -1,4 +1,4 @@
-
+from broker.BrokerService import BrokerService
 
 
 class BrokerAssignment:
@@ -6,4 +6,5 @@ class BrokerAssignment:
         """
         Fetches the broker for a given message.
         """
-        raise NotImplementedError()
+        return BrokerService()
+        # Logic to fetch the broker based on the partition_id
