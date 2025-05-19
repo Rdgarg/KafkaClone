@@ -17,4 +17,4 @@ class Producer:
         broker = self.broker_fetcher.fetch_broker(partition_id)
         message_id = broker.process_message(partition_id, message)
         # Logic to publish the message to the broker
-        raise message_id
+        return message_id
