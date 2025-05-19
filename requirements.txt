@@ -1,0 +1,6 @@
+pip~=21.2.4
+attrs~=25.3.0
+wheel~=0.37.0
+protobuf~=5.29.4
+filelock~=3.18.0
+Booktype~=1.5
