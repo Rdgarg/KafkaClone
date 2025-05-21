@@ -1,10 +1,17 @@
 from flask import Flask,request,jsonify
 
 from common.models.Message import Message
+from common.service.BrokerAssignment import BrokerAssignment
+from common.service.PartitionFetcher import PartitionFetcher
 from producer.Producer import Producer
+from common.service.zookeeper import Zookeeper
 
 app = Flask(__name__)
-producer = Producer()
+zookeeper = Zookeeper()
+broker_assignment = BrokerAssignment(zookeeper)
+partition_fetcher = PartitionFetcher(zookeeper)# Assuming Zookeeper is defined somewhere in your code
+
+producer = Producer(broker_assignment, partition_fetcher)
 
 @app.route('/produce', methods=['POST'])
 def produce():
