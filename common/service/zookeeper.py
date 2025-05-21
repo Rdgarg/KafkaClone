@@ -3,8 +3,9 @@ from broker.BrokerService import BrokerService
 
 class Zookeeper:
 
-    partition_broker_map = {1:1, 2:1, 3:1, 4:2, 5:2, 6:2}
-    broker_map = {1: BrokerService(1), 2: BrokerService(2)}
+    def __init__(self):
+        self.partition_broker_map = {1:1, 2:1, 3:1, 4:2, 5:2, 6:2}
+        self.broker_map = {1: BrokerService(1), 2: BrokerService(2)}
 
     def register_partition(self, partition_id, broker_id):
         """
